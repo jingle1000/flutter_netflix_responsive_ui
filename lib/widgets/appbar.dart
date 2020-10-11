@@ -15,7 +15,7 @@ class HomeAppBar extends StatelessWidget {
     print(scrollOffset);
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-      color: Colors.red
+      color: Colors.black
           .withOpacity((this.scrollOffset / 350.0).clamp(0, 1).toDouble()),
       child: SafeArea(
         child: Row(
