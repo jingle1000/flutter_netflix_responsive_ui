@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_netflix_responsive_ui/data/data.dart';
 import 'package:flutter_netflix_responsive_ui/widgets/appbar.dart';
 import 'package:flutter_netflix_responsive_ui/widgets/content_header.dart';
+import 'package:flutter_netflix_responsive_ui/widgets/previews.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -53,9 +54,19 @@ class _HomeScreenState extends State<HomeScreen> {
         controller: _scrollController,
         slivers: [
           SliverToBoxAdapter(
-              child: ContentHeader(
-            featuredContnent: sintelContent,
-          ))
+            child: ContentHeader(
+              featuredContnent: sintelContent,
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.only(top: 10.0),
+            sliver: SliverToBoxAdapter(
+              child: Previews(
+                title: "Previews",
+                content: previews,
+              ),
+            ),
+          )
         ],
       ),
     );
