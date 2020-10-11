@@ -23,7 +23,7 @@ class HomeAppBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset(
-              Assets.netflixLogo0,
+              Assets.flagsLogo,
             ),
             Wrap(
               children: [

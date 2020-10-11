@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
         slivers: [
           SliverToBoxAdapter(
             child: Container(
-              height: 700.0,
+              height: 1000.0,
               color: Colors.blue,
               child: Column(
                 children: [],
