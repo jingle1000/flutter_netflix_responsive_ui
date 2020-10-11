@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_netflix_responsive_ui/data/data.dart';
 import 'package:flutter_netflix_responsive_ui/widgets/appbar.dart';
 import 'package:flutter_netflix_responsive_ui/widgets/content_header.dart';
+import 'package:flutter_netflix_responsive_ui/widgets/content_list.dart';
 import 'package:flutter_netflix_responsive_ui/widgets/previews.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -65,6 +66,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: "Previews",
                 content: previews,
               ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: ContentList(
+              headerText: "Street Racing Orignals",
+              contentList: myList,
+              isOriginals: true,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: ContentList(
+              headerText: "My List",
+              contentList: myList,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: ContentList(
+              headerText: "Following",
+              contentList: myList,
             ),
           )
         ],

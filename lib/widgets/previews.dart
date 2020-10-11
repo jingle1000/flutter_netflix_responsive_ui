@@ -9,11 +9,17 @@ class Previews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: const TextStyle(
-              color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 10.0),
+          child: Text(
+            title,
+            style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold),
+          ),
         ),
         Container(
           height: 165.0,

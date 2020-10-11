@@ -15,6 +15,6 @@ class Content {
     this.titleImageUrl,
     this.videoUrl,
     this.description,
-    this.color,
+    this.color = Colors.black,
   });
 }
