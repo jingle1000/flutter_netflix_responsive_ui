@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_netflix_responsive_ui/cubits/cubits.dart';
 import 'package:flutter_netflix_responsive_ui/data/data.dart';
 import 'package:flutter_netflix_responsive_ui/widgets/appbar.dart';
 import 'package:flutter_netflix_responsive_ui/widgets/content_header.dart';
@@ -13,16 +15,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   ScrollController _scrollController;
-  double _scrollOffset = 0.0;
 
   @override
   void initState() {
     _scrollController = ScrollController()
       ..addListener(() {
-        setState(() {
-          _scrollOffset = _scrollController.offset;
-        });
+        context.bloc<AppBarCubit>().setOffset(_scrollController.offset);
       });
+
     super.initState();
   }
 
@@ -43,13 +43,16 @@ class _HomeScreenState extends State<HomeScreen> {
         child: const Icon(Icons.cast),
         onPressed: () {
           print("cast");
-          print(_scrollOffset.toString());
         },
       ),
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 50.0),
-        child: HomeAppBar(
-          scrollOffset: _scrollOffset,
+        child: BlocBuilder<AppBarCubit, double>(
+          builder: (context, scrollOffset) {
+            return HomeAppBar(
+              scrollOffset: scrollOffset,
+            );
+          },
         ),
       ),
       body: CustomScrollView(
